@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Pokedex</string>
-    <string name="Title">כותרת</string>
-    <string name="PokemonImage">תמונת פוקימון</string>
-    <string name="PokemonName">שם הפוקימון</string>
-    <string name="ID">#0001</string>
-    <string name="BackIconImage">תמונת כפתור חזרה</string>
-</resources>
