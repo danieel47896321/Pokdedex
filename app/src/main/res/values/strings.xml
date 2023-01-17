@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Pokedex</string>
+    <string name="Title">Title</string>
+    <string name="PokemonImage">Pokemon Image</string>
+    <string name="PokemonName">Pokemon Name</string>
+    <string name="ID">#0001</string>
+    <string name="BackIconImage">Back Icon Image</string>
 </resources>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="14dp"
+    android:layout_marginStart="7dp"
+    android:layout_marginEnd="7dp"
+    app:cardCornerRadius="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:clickable="true"
+        android:foreground="?selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageViewPokemonImage"
+            android:contentDescription="@string/PokemonImage"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/textViewPokemonID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ID"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/default_color"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textViewPokemonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/PokemonName"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
