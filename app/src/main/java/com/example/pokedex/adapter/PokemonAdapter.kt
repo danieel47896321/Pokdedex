@@ -1,5 +1,7 @@
 package com.example.pokedex.adapter
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.pokedex.PokemonPage
 import com.example.pokedex.R
 import com.example.pokedex.model.PokemonInfo
 
@@ -21,22 +24,31 @@ class PokemonAdapter(private var list: ArrayList<PokemonInfo>) : RecyclerView.Ad
         holder.textViewPokemonID.text = getPokemonId(list[position].pokemonId)
         Glide.with(holder.itemView).load(list[position].imageUrl).into(holder.imageViewPokemonImage)
         holder.linearLayout.setOnClickListener{
-
+            val intent = Intent(holder.itemView.context, PokemonPage::class.java)
+            intent.putExtra("name", list[position].pokemonName)
+            holder.itemView.context.startActivity(intent)
+            (holder.itemView.context as Activity).finish()
         }
     }
     private fun getPokemonName(pokemonName: String): String {
-        return pokemonName[0].uppercase() + pokemonName.substring(1, pokemonName.length)
+        var name = ""
+        if (pokemonName.isNotEmpty()) {
+            name = if (pokemonName.length > 1) {
+                pokemonName[0].uppercase() + pokemonName.substring(1, pokemonName.length)
+            } else {
+                pokemonName[0].uppercase()
+            }
+        }
+        return name
     }
     private fun getPokemonId(pokemonId: String): String {
         var id = "#"
-        if(pokemonId.length == 1)
-            id += "000$pokemonId"
-        else if(pokemonId.length == 2)
-            id += "00$pokemonId"
-        else if(pokemonId.length == 3)
-            id += "0$pokemonId"
-        else
-            id += pokemonId
+        id += when (pokemonId.length) {
+            3 -> "0$pokemonId"
+            2 -> "00$pokemonId"
+            1 -> "000$pokemonId"
+            else -> pokemonId
+        }
         return id
     }
     override fun getItemCount(): Int { return list.size }

@@ -6,4 +6,5 @@
     <string name="ID">#0001</string>
     <string name="BackIconImage">Back Icon Image</string>
     <string name="PokemonList">Pokemon List</string>
+    <string name="PokemonType">Pokemon Type</string>
 </resources>

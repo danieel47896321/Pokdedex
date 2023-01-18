@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+    @Synchronized
     private fun getPokemonList() {
         pokemonViewModel.getPokemonList(pageSize, currentPage * pageSize).observe(this) { pokemonList ->
             progressBar.visibility = View.GONE
@@ -61,15 +62,12 @@ class MainActivity : AppCompatActivity() {
             if(pokemonList != null) {
                 for(i in 0 until pageSize) {
                     val imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + (i+1+currentSize) + ".png"
-                    addPokemon(pokemonList.results[i].name, imageUrl,(i+1+currentSize).toString())
+                    list.add(PokemonInfo(pokemonList.results[i].name, imageUrl,(i+1+currentSize).toString()))
                 }
-                pokemonAdapter.notifyItemRangeInserted(currentSize, list.size)
+                 pokemonAdapter.notifyItemRangeInserted(currentSize, list.size)
             } else {
-                pokemonAdapter.notifyItemRangeInserted(0, currentSize)
+                pokemonAdapter.notifyDataSetChanged()
             }
         }
-    }
-    private fun addPokemon(name: String, url: String, id: String) {
-        list.add(PokemonInfo(name,url ,id))
     }
 }
