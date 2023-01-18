@@ -6,9 +6,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.pokedex.adapter.PokemonStatsAdapter
+import com.example.pokedex.model.Stat
 import com.example.pokedex.model.Type
 import com.example.pokedex.viewmodel.PokemonViewModel
 
@@ -18,8 +23,15 @@ class PokemonPage : AppCompatActivity() {
     private lateinit var textViewPokemonName: TextView
     private lateinit var textViewPokemonType1: TextView
     private lateinit var textViewPokemonType2: TextView
+    private lateinit var textViewPokemonWeight: TextView
+    private lateinit var textViewPokemonHeight: TextView
+    private lateinit var cardViewPokemonType1: CardView
+    private lateinit var cardViewPokemonType2: CardView
     private lateinit var backIcon: ImageView
     private lateinit var imageViewPokemonImage: ImageView
+    private lateinit var recyclerView : RecyclerView
+    private var list = ArrayList<Stat>(6)
+    private var pokemonStatsAdapter = PokemonStatsAdapter(list)
     private lateinit var name: String
     private lateinit var pokemonViewModel: PokemonViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,9 +47,15 @@ class PokemonPage : AppCompatActivity() {
         textViewPokemonName = findViewById<TextView>(R.id.textViewPokemonName)
         textViewPokemonType1 = findViewById<TextView>(R.id.textViewPokemonType1)
         textViewPokemonType2 = findViewById<TextView>(R.id.textViewPokemonType2)
+        textViewPokemonWeight = findViewById<TextView>(R.id.textViewPokemonWeight)
+        textViewPokemonHeight = findViewById<TextView>(R.id.textViewPokemonHeight)
+        cardViewPokemonType1 = findViewById<CardView>(R.id.cardViewPokemonType1)
+        cardViewPokemonType2 = findViewById<CardView>(R.id.cardViewPokemonType2)
         backIcon = findViewById<ImageView>(R.id.backIcon)
+        recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         imageViewPokemonImage = findViewById<ImageView>(R.id.imageViewPokemonImage)
-        title.text = getNameUppercaseFirstChar(name)
+        title.text = name[0].uppercase() + name.substring(1, name.length)
+        recyclerView.adapter = pokemonStatsAdapter
         buttonBackIcon()
         getPokemon()
     }
@@ -47,11 +65,17 @@ class PokemonPage : AppCompatActivity() {
                 val imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + +pokemon.id + ".png"
                 Glide.with(this).load(imageUrl).into(imageViewPokemonImage)
                 textViewPokemonID.text = getPokemonId(pokemon.id.toString())
-                textViewPokemonName.text = getNameUppercaseFirstChar(pokemon.name)
+                textViewPokemonName.text = pokemon.name[0].uppercase() + pokemon.name.substring(1, pokemon.name.length)
                 setPokemonTypes(pokemon.types.size, pokemon.types)
-
-
-
+                textViewPokemonWeight.text = "${pokemon.weight.toFloat()/10} ${getString(R.string.Kg)}"
+                textViewPokemonHeight.text = "${pokemon.height.toFloat()/10} ${getString(R.string.Meter)}"
+                list.add(pokemon.stats[0])
+                list.add(pokemon.stats[1])
+                list.add(pokemon.stats[2])
+                list.add(pokemon.stats[3])
+                list.add(pokemon.stats[4])
+                list.add(pokemon.stats[5])
+                pokemonStatsAdapter.notifyItemChanged(0,6)
             }
         }
     }
@@ -59,13 +83,13 @@ class PokemonPage : AppCompatActivity() {
     private fun setPokemonTypes(size: Int, types: List<Type>) {
         when (size){
             1 -> {
-                textViewPokemonType2.visibility = View.GONE
-                textViewPokemonType1.text = getNameUppercaseFirstChar(types[0].type.name)
+                cardViewPokemonType2.visibility = View.GONE
+                textViewPokemonType1.text = getType(types[0].type.name)
                 setTypeBackground(textViewPokemonType1, types[0].type.name)
             }
             2 -> {
-                textViewPokemonType1.text = getNameUppercaseFirstChar(types[0].type.name)
-                textViewPokemonType2.text = getNameUppercaseFirstChar(types[1].type.name)
+                textViewPokemonType1.text = getType(types[0].type.name)
+                textViewPokemonType2.text = getType(types[1].type.name)
                 setTypeBackground(textViewPokemonType1, types[0].type.name)
                 setTypeBackground(textViewPokemonType2, types[1].type.name)
             }
@@ -106,16 +130,30 @@ class PokemonPage : AppCompatActivity() {
         }
         return id
     }
-    private fun getNameUppercaseFirstChar(pokemonName: String): String {
-        var name = ""
-        if (pokemonName.isNotEmpty()) {
-            name = if (pokemonName.length > 1) {
-                pokemonName[0].uppercase() + pokemonName.substring(1, pokemonName.length)
-            } else {
-                pokemonName[0].uppercase()
-            }
+    private fun getType(pokemonType: String): String {
+        var type = ""
+        when (pokemonType) {
+            "grass" -> type = getString(R.string.Grass)
+            "water" -> type = getString(R.string.Water)
+            "fire" -> type = getString(R.string.Fire)
+            "electric" -> type = getString(R.string.Electric)
+            "poison" -> type = getString(R.string.Poison)
+            "psychic" -> type = getString(R.string.Psychic)
+            "ice" -> type = getString(R.string.Ice)
+            "flying" -> type = getString(R.string.Flying)
+            "rock" -> type = getString(R.string.Rock)
+            "bug" -> type = getString(R.string.Bug)
+            "steel" -> type = getString(R.string.Steel)
+            "normal" -> type = getString(R.string.Normal)
+            "fighting" -> type = getString(R.string.Fighting)
+            "ghost" -> type = getString(R.string.Ghost)
+            "dark" -> type = getString(R.string.Dark)
+            "ground" -> type = getString(R.string.Ground)
+            "dragon" -> type = getString(R.string.Dragon)
+            "fairy" -> type = getString(R.string.Fairy)
+            else -> type = getString(R.string.Normal)
         }
-        return name
+        return type
     }
     private fun buttonBackIcon() {
         backIcon.setOnClickListener {

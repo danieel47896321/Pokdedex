@@ -8,13 +8,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokedex.PokemonPage
 import com.example.pokedex.R
 import com.example.pokedex.model.PokemonInfo
+import com.example.pokedex.viewmodel.PokemonViewModel
+import kotlin.coroutines.coroutineContext
 
-class PokemonAdapter(private var list: ArrayList<PokemonInfo>) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
+class PokemonAdapter(private var list: ArrayList<PokemonInfo>): RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.pokemon_view, parent, false)
         return ViewHolder(v)
@@ -23,7 +26,7 @@ class PokemonAdapter(private var list: ArrayList<PokemonInfo>) : RecyclerView.Ad
         holder.textViewPokemonName.text = getPokemonName(list[position].pokemonName)
         holder.textViewPokemonID.text = getPokemonId(list[position].pokemonId)
         Glide.with(holder.itemView).load(list[position].imageUrl).into(holder.imageViewPokemonImage)
-        holder.linearLayout.setOnClickListener{
+        holder.linearLayout.setOnClickListener {
             val intent = Intent(holder.itemView.context, PokemonPage::class.java)
             intent.putExtra("name", list[position].pokemonName)
             holder.itemView.context.startActivity(intent)

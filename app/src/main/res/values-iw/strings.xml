@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">פוקידע</string>
+    <string name="Title">כותרת</string>
+    <string name="PokemonImage">תמונת הפוקימון</string>
+    <string name="PokemonName">שם הפוקימון</string>
+    <string name="ID">#0001</string>
+    <string name="BackIconImage">Back Icon Image</string>
+    <string name="PokemonList">רשימת הפוקימונים</string>
+    <string name="PokemonType">סוג</string>
+    <string name="PokemonWeight">משקל</string>
+    <string name="PokemonHeight">גובה</string>
+    <string name="Kg">ק\"ג</string>
+    <string name="Meter">מטר</string>
+    <string name="Hp">חיים</string>
+    <string name="Att">התקפה</string>
+    <string name="Def">הגנה</string>
+    <string name="SpAtt">התקפה מיוחדת</string>
+    <string name="SpDef">הגנה מיוחדת</string>
+    <string name="Speed">מהירות</string>
+    <string name="Grass">עשב</string>
+    <string name="Water">מים</string>
+    <string name="Fire">אש</string>
+    <string name="Electric">חשמל</string>
+    <string name="Poison">רעל</string>
+    <string name="Psychic">על חושי</string>
+    <string name="Ice">קרח</string>
+    <string name="Flying">מעופף</string>
+    <string name="Rock">סלע</string>
+    <string name="Bug">חרק</string>
+    <string name="Steel">מתכת</string>
+    <string name="Normal">רגיל</string>
+    <string name="Fighting">לחימה</string>
+    <string name="Ghost">רוח רפאים</string>
+    <string name="Dark">אופל</string>
+    <string name="Ground">אדמה</string>
+    <string name="Dragon">דרקון</string>
+    <string name="Fairy">פיה</string>
+</resources>

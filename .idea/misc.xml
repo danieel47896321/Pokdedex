@@ -5,9 +5,10 @@
       <map>
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Pokedex/app/src/main/res/drawable-v24/back.xml" value="0.257" />
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Pokedex/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Pokedex/app/src/main/res/layout/activity_pokemon_page.xml" value="0.7020725388601037" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Pokedex/app/src/main/res/layout/activity_pokemon_page.xml" value="0.25" />
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Pokedex/app/src/main/res/layout/header.xml" value="0.30085470085470084" />
         <entry key="..\:/Users/Daniel/AndroidStudioProjects/Pokedex/app/src/main/res/layout/pokemon_view.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Daniel/AndroidStudioProjects/Pokedex/app/src/main/res/layout/stat_view.xml" value="0.4533662754786906" />
       </map>
     </option>
   </component>
