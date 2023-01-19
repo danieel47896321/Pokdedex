@@ -8,14 +8,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokedex.PokemonPage
 import com.example.pokedex.R
 import com.example.pokedex.model.PokemonInfo
-import com.example.pokedex.viewmodel.PokemonViewModel
-import kotlin.coroutines.coroutineContext
 
 class PokemonAdapter(private var list: ArrayList<PokemonInfo>): RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonAdapter.ViewHolder {

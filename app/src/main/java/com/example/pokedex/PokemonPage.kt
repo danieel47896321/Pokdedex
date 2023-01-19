@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
@@ -28,6 +28,7 @@ class PokemonPage : AppCompatActivity() {
     private lateinit var cardViewPokemonType1: CardView
     private lateinit var cardViewPokemonType2: CardView
     private lateinit var backIcon: ImageView
+    private lateinit var progressBar: ProgressBar
     private lateinit var imageViewPokemonImage: ImageView
     private lateinit var recyclerView : RecyclerView
     private var list = ArrayList<Stat>(6)
@@ -43,6 +44,7 @@ class PokemonPage : AppCompatActivity() {
         name = (intent.getSerializableExtra("name") as? String)!!
         pokemonViewModel = ViewModelProvider(this)[PokemonViewModel::class.java]
         title = findViewById<TextView>(R.id.title)
+        progressBar = findViewById<ProgressBar>(R.id.progressBar)
         textViewPokemonID = findViewById<TextView>(R.id.textViewPokemonID)
         textViewPokemonName = findViewById<TextView>(R.id.textViewPokemonName)
         textViewPokemonType1 = findViewById<TextView>(R.id.textViewPokemonType1)
@@ -62,6 +64,7 @@ class PokemonPage : AppCompatActivity() {
     private fun getPokemon() {
         pokemonViewModel.getPokemonInfo(name).observe(this) { pokemon ->
             if (pokemon != null) {
+                progressBar.visibility = View.GONE
                 val imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + +pokemon.id + ".png"
                 Glide.with(this).load(imageUrl).into(imageViewPokemonImage)
                 textViewPokemonID.text = getPokemonId(pokemon.id.toString())
@@ -131,7 +134,7 @@ class PokemonPage : AppCompatActivity() {
         return id
     }
     private fun getType(pokemonType: String): String {
-        var type = ""
+        val type: String
         when (pokemonType) {
             "grass" -> type = getString(R.string.Grass)
             "water" -> type = getString(R.string.Water)

@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pokedex.R
 import com.example.pokedex.model.Stat
 
-
 class PokemonStatsAdapter(var list: ArrayList<Stat>) : RecyclerView.Adapter<PokemonStatsAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonStatsAdapter.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.stat_view, parent, false)
@@ -21,7 +20,7 @@ class PokemonStatsAdapter(var list: ArrayList<Stat>) : RecyclerView.Adapter<Poke
         holder.textViewValue.text = list[position].base_stat.toString()
         var width = holder.cardViewCurrent.layoutParams.width / 3 + list[position].base_stat * 4
         if(width >= holder.cardViewCurrent.layoutParams.width)
-            width = holder.cardViewCurrent.layoutParams.width
+            width = holder.cardViewCurrent.layoutParams.width - 50
         holder.cardViewCurrent.layoutParams = FrameLayout.LayoutParams( width , 120)
     }
     private fun getStatName(holder: ViewHolder, stat: String): String {
