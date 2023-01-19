@@ -3,11 +3,13 @@ package com.example.pokedex.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokedex.R
 import com.example.pokedex.model.Stat
+import java.security.AccessController.getContext
 
 
 class PokemonStatsAdapter(var list: ArrayList<Stat>) : RecyclerView.Adapter<PokemonStatsAdapter.ViewHolder>() {
@@ -18,10 +20,7 @@ class PokemonStatsAdapter(var list: ArrayList<Stat>) : RecyclerView.Adapter<Poke
     override fun onBindViewHolder(holder: PokemonStatsAdapter.ViewHolder, position: Int) {
         holder.textViewStatName.text = getStatName(holder, list[position].stat.name)
         holder.textViewValue.text = list[position].base_stat.toString()
-        holder.itemView.context.getString(R.string.Hp)
-        //holder.cardViewCurrent.layoutParams = RelativeLayout.LayoutParams(20, 20)
-
-        //holder.cardViewCurrent.layoutParams =  ViewGroup.LayoutParams(holder.cardViewMax.width - (holder.cardViewMax.width - list[position].base_stat),holder.cardViewMax.height)
+        holder.cardViewCurrent.layoutParams = FrameLayout.LayoutParams(1200 - (1200 - list[position].base_stat * 10) , 120)
     }
     private fun getStatName(holder: ViewHolder, stat: String): String {
         var shortStat = ""
