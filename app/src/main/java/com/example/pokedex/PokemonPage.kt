@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.pokedex.adapter.PokemonAdapter
 import com.example.pokedex.adapter.PokemonStatsAdapter
 import com.example.pokedex.model.Stat
 import com.example.pokedex.model.Type
@@ -30,9 +31,8 @@ class PokemonPage : AppCompatActivity() {
     private lateinit var backIcon: ImageView
     private lateinit var progressBar: ProgressBar
     private lateinit var imageViewPokemonImage: ImageView
-    private lateinit var recyclerView : RecyclerView
-    private var list = ArrayList<Stat>(6)
-    private var pokemonStatsAdapter = PokemonStatsAdapter(list)
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var pokemonStatsAdapter: PokemonStatsAdapter
     private lateinit var name: String
     private lateinit var pokemonViewModel: PokemonViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +43,7 @@ class PokemonPage : AppCompatActivity() {
     private fun init() {
         name = (intent.getSerializableExtra("name") as? String)!!
         pokemonViewModel = ViewModelProvider(this)[PokemonViewModel::class.java]
+        pokemonStatsAdapter = PokemonStatsAdapter(pokemonViewModel.getListStats())
         title = findViewById<TextView>(R.id.title)
         progressBar = findViewById<ProgressBar>(R.id.progressBar)
         textViewPokemonID = findViewById<TextView>(R.id.textViewPokemonID)
@@ -56,7 +57,6 @@ class PokemonPage : AppCompatActivity() {
         backIcon = findViewById<ImageView>(R.id.backIcon)
         recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         imageViewPokemonImage = findViewById<ImageView>(R.id.imageViewPokemonImage)
-        title.text = name[0].uppercase() + name.substring(1, name.length)
         recyclerView.adapter = pokemonStatsAdapter
         buttonBackIcon()
         getPokemon()
@@ -65,24 +65,20 @@ class PokemonPage : AppCompatActivity() {
         pokemonViewModel.getPokemonInfo(name).observe(this) { pokemon ->
             if (pokemon != null) {
                 progressBar.visibility = View.GONE
-                val imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + +pokemon.id + ".png"
-                Glide.with(this).load(imageUrl).into(imageViewPokemonImage)
-                textViewPokemonID.text = getPokemonId(pokemon.id.toString())
-                textViewPokemonName.text = pokemon.name[0].uppercase() + pokemon.name.substring(1, pokemon.name.length)
+                title.text = pokemon.getPokemonName()
+                Glide.with(this).load(pokemon.getImage()).into(imageViewPokemonImage)
+                textViewPokemonID.text = pokemon.getID()
+                textViewPokemonName.text = pokemon.getPokemonName()
                 setPokemonTypes(pokemon.types.size, pokemon.types)
                 textViewPokemonWeight.text = "${pokemon.weight.toFloat()/10} ${getString(R.string.Kg)}"
                 textViewPokemonHeight.text = "${pokemon.height.toFloat()/10} ${getString(R.string.Meter)}"
-                list.add(pokemon.stats[0])
-                list.add(pokemon.stats[1])
-                list.add(pokemon.stats[2])
-                list.add(pokemon.stats[3])
-                list.add(pokemon.stats[4])
-                list.add(pokemon.stats[5])
+                for(stat in pokemon.stats) {
+                    pokemonViewModel.getListStats().add(stat)
+                }
                 pokemonStatsAdapter.notifyItemChanged(0,6)
             }
         }
     }
-
     private fun setPokemonTypes(size: Int, types: List<Type>) {
         when (size){
             1 -> {
@@ -98,8 +94,7 @@ class PokemonPage : AppCompatActivity() {
             }
         }
     }
-
-    private fun setTypeBackground(textViewPokemonType1: TextView, type: String, ) {
+    private fun setTypeBackground(textViewPokemonType1: TextView, type: String) {
         when (type) {
             "grass" -> textViewPokemonType1.background = ContextCompat.getDrawable(this, R.color.grass)
             "water" -> textViewPokemonType1.background = ContextCompat.getDrawable(this, R.color.water)
@@ -121,17 +116,6 @@ class PokemonPage : AppCompatActivity() {
             "fairy" -> textViewPokemonType1.background = ContextCompat.getDrawable(this, R.color.fairy)
             else -> textViewPokemonType1.background = ContextCompat.getDrawable(this, R.color.normal)
         }
-    }
-
-    private fun getPokemonId(pokemonId: String): String {
-        var id = "#"
-        id += when (pokemonId.length) {
-            3 -> "0$pokemonId"
-            2 -> "00$pokemonId"
-            1 -> "000$pokemonId"
-            else -> pokemonId
-        }
-        return id
     }
     private fun getType(pokemonType: String): String {
         val type: String

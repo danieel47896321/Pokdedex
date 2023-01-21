@@ -9,9 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokedex.adapter.PokemonAdapter
+import com.example.pokedex.model.Pokemon
 import com.example.pokedex.model.PokemonInfo
 import com.example.pokedex.viewmodel.PokemonViewModel
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var pokemonViewModel: PokemonViewModel
@@ -59,8 +59,7 @@ class MainActivity : AppCompatActivity() {
             pokemonViewModel.setTotal(pokemonList.count)
             if(pokemonList != null) {
                 for(i in 0 until pokemonViewModel.getPageSize()) {
-                    val imageUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + (i+1+currentSize) + ".png"
-                    pokemonViewModel.getList().add(PokemonInfo(pokemonList.results[i].name, imageUrl,(i+1+currentSize).toString()))
+                    pokemonViewModel.getList().add(PokemonInfo(pokemonList.results[i].name,(i+1+currentSize).toString()))
                 }
                  pokemonAdapter.notifyItemRangeInserted(currentSize, pokemonViewModel.getList().size)
             } else {

@@ -20,36 +20,16 @@ class PokemonAdapter(private var list: ArrayList<PokemonInfo>): RecyclerView.Ada
         return ViewHolder(v)
     }
     override fun onBindViewHolder(holder: PokemonAdapter.ViewHolder, position: Int) {
-        holder.textViewPokemonName.text = getPokemonName(list[position].pokemonName)
-        holder.textViewPokemonID.text = getPokemonId(list[position].pokemonId)
-        Glide.with(holder.itemView).load(list[position].imageUrl).into(holder.imageViewPokemonImage)
+        val pokemon = list[position]
+        holder.textViewPokemonName.text = pokemon.getPokemonName()
+        holder.textViewPokemonID.text = pokemon.getID()
+        Glide.with(holder.itemView).load(pokemon.getImage()).into(holder.imageViewPokemonImage)
         holder.linearLayout.setOnClickListener {
             val intent = Intent(holder.itemView.context, PokemonPage::class.java)
-            intent.putExtra("name", list[position].pokemonName)
+            intent.putExtra("name", pokemon.name)
             holder.itemView.context.startActivity(intent)
             (holder.itemView.context as Activity).finish()
         }
-    }
-    private fun getPokemonName(pokemonName: String): String {
-        var name = ""
-        if (pokemonName.isNotEmpty()) {
-            name = if (pokemonName.length > 1) {
-                pokemonName[0].uppercase() + pokemonName.substring(1, pokemonName.length)
-            } else {
-                pokemonName[0].uppercase()
-            }
-        }
-        return name
-    }
-    private fun getPokemonId(pokemonId: String): String {
-        var id = "#"
-        id += when (pokemonId.length) {
-            3 -> "0$pokemonId"
-            2 -> "00$pokemonId"
-            1 -> "000$pokemonId"
-            else -> pokemonId
-        }
-        return id
     }
     override fun getItemCount(): Int { return list.size }
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
