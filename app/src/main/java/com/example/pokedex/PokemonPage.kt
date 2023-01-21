@@ -75,7 +75,7 @@ class PokemonPage : AppCompatActivity() {
                 for(stat in pokemon.stats) {
                     pokemonViewModel.getListStats().add(stat)
                 }
-                pokemonStatsAdapter.notifyItemChanged(0,6)
+                pokemonStatsAdapter.notifyItemChanged(0,pokemon.stats.size)
             }
         }
     }
