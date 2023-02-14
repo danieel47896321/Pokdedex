@@ -8,11 +8,15 @@ Click on pokemon will move you to page that show more information about him.
 
 Implemented MVVM architecture.
 
-![CHEESE!](https://user-images.githubusercontent.com/74861262/213867994-b086b1c7-e0a1-4cfb-bdc1-05d9edd4f5b5.png)
-![CHEESE!](https://user-images.githubusercontent.com/74861262/213867995-9210de1b-57cd-4427-b668-dff111669ff9.png)
-![CHEESE!](https://user-images.githubusercontent.com/74861262/213868003-0356d8af-bccd-4342-ac54-9891fb524c73.png)
-![CHEESE!](https://user-images.githubusercontent.com/74861262/213868006-c7be1e45-7729-42c1-9e69-f71d94c2f1ea.png)
-![CHEESE!](https://user-images.githubusercontent.com/74861262/213868015-71f4f226-b84b-4651-92b0-2f5692389774.png)
-![CHEESE!](https://user-images.githubusercontent.com/74861262/213868018-247bbd03-216f-4e33-ad78-7c8c981c2e2d.png)
-![CHEESE!](https://user-images.githubusercontent.com/74861262/213868052-e25b4192-d80a-4422-8677-f7d07dc4d6a9.png)
-![CHEESE!](https://user-images.githubusercontent.com/74861262/213868059-461a364e-0e47-4fe1-994c-51282b1b3c6d.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218753989-dde153ec-4405-483c-8cd9-424147fdaff1.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218753796-427501f0-159a-417b-a57e-9194d46ef028.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218754140-4e7825ba-5157-47ce-b5ec-e9a6b37ae02e.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218753823-209e49f5-5919-4f48-8a06-581dbe4f494a.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218754168-060e13e9-a47d-485e-8235-6d3b8640161b.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218753905-e7a52a0c-41dc-490d-9731-2a7553080dfc.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218754204-524861a0-278c-4843-b171-04dba1000d1a.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218753936-609b20da-b7c6-4804-bfa2-140e35109f19.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218754236-ed36e3eb-e4a6-4c61-ae26-5351dbe0da0b.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218754023-3d83d53f-9603-45cd-81fc-62187fe93246.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218754257-0fee4085-3e54-4cf1-a3ad-0a1b3fab7586.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218754113-d54b987f-efae-41e3-b3cf-ea773ef5735c.png)
