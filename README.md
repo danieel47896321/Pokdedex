@@ -8,7 +8,7 @@ Click on pokemon will move you to page that show more information about him.
 
 Implemented MVVM architecture.
 
-![CHEESE!](https://user-images.githubusercontent.com/74861262/218753989-dde153ec-4405-483c-8cd9-424147fdaff1.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218754113-d54b987f-efae-41e3-b3cf-ea773ef5735c.png)
 ![CHEESE!](https://user-images.githubusercontent.com/74861262/218753796-427501f0-159a-417b-a57e-9194d46ef028.png)
 ![CHEESE!](https://user-images.githubusercontent.com/74861262/218754140-4e7825ba-5157-47ce-b5ec-e9a6b37ae02e.png)
 ![CHEESE!](https://user-images.githubusercontent.com/74861262/218753823-209e49f5-5919-4f48-8a06-581dbe4f494a.png)
@@ -18,5 +18,5 @@ Implemented MVVM architecture.
 ![CHEESE!](https://user-images.githubusercontent.com/74861262/218753936-609b20da-b7c6-4804-bfa2-140e35109f19.png)
 ![CHEESE!](https://user-images.githubusercontent.com/74861262/218754236-ed36e3eb-e4a6-4c61-ae26-5351dbe0da0b.png)
 ![CHEESE!](https://user-images.githubusercontent.com/74861262/218754023-3d83d53f-9603-45cd-81fc-62187fe93246.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218753989-dde153ec-4405-483c-8cd9-424147fdaff1.png)
 ![CHEESE!](https://user-images.githubusercontent.com/74861262/218754257-0fee4085-3e54-4cf1-a3ad-0a1b3fab7586.png)
-![CHEESE!](https://user-images.githubusercontent.com/74861262/218754113-d54b987f-efae-41e3-b3cf-ea773ef5735c.png)
