@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
+    android:layoutDirection="rtl"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -102,11 +103,9 @@
             android:layout_marginBottom="45dp">
 
             <ImageView
-                android:contentDescription="@string/app_name"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
+                android:contentDescription="@string/app_name"
                 android:src="@drawable/arrow"
                 app:layout_constraintBottom_toTopOf="@+id/textView"
                 app:layout_constraintEnd_toEndOf="parent"
