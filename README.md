@@ -8,7 +8,7 @@ Click on pokemon will move you to page that show more information about him.
 
 Implemented MVVM architecture.
 
-![CHEESE!](https://user-images.githubusercontent.com/74861262/218754113-d54b987f-efae-41e3-b3cf-ea773ef5735c.png)
+![CHEESE!](https://user-images.githubusercontent.com/74861262/218756676-5f46527a-bec1-4422-b55c-57e338024cac.png)
 ![CHEESE!](https://user-images.githubusercontent.com/74861262/218753796-427501f0-159a-417b-a57e-9194d46ef028.png)
 ![CHEESE!](https://user-images.githubusercontent.com/74861262/218754140-4e7825ba-5157-47ce-b5ec-e9a6b37ae02e.png)
 ![CHEESE!](https://user-images.githubusercontent.com/74861262/218753823-209e49f5-5919-4f48-8a06-581dbe4f494a.png)
