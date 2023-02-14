@@ -21,6 +21,19 @@ class PokemonViewModel: ViewModel() {
     fun getPokemonInfo(name: String): LiveData<Pokemon> {
         return pokemonRepository.getPokemonInfo(name)
     }
+    fun userSearch(name: String): ArrayList<PokemonInfo> {
+        val searchList = ArrayList<PokemonInfo>()
+        return if (name != "") {
+            list.map {
+                if (it.name.lowercase().contains(name.lowercase())) {
+                    searchList.add(it)
+                }
+            }
+            searchList
+        } else {
+            list
+        }
+    }
     fun getList(): ArrayList<PokemonInfo> {
         return list
     }
@@ -41,5 +54,8 @@ class PokemonViewModel: ViewModel() {
     }
     fun increasePage() {
         currentPage++
+    }
+    fun setList(list: ArrayList<PokemonInfo>) {
+        this.list = list
     }
 }

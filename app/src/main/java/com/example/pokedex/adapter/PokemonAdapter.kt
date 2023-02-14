@@ -1,6 +1,5 @@
 package com.example.pokedex.adapter
 
-import android.app.Activity
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +27,6 @@ class PokemonAdapter(private var list: ArrayList<PokemonInfo>): RecyclerView.Ada
             val intent = Intent(holder.itemView.context, PokemonPage::class.java)
             intent.putExtra("name", pokemon.name)
             holder.itemView.context.startActivity(intent)
-            (holder.itemView.context as Activity).finish()
         }
     }
     override fun getItemCount(): Int { return list.size }

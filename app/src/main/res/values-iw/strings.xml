@@ -6,7 +6,6 @@
     <string name="PokemonName">שם הפוקימון</string>
     <string name="ID">#0001</string>
     <string name="BackIconImage">Back Icon Image</string>
-    <string name="PokemonList">רשימת הפוקימונים</string>
     <string name="PokemonType">סוג</string>
     <string name="PokemonWeight">משקל</string>
     <string name="PokemonHeight">גובה</string>
@@ -36,4 +35,5 @@
     <string name="Ground">אדמה</string>
     <string name="Dragon">דרקון</string>
     <string name="Fairy">פיה</string>
+    <string name="Search">חיפוש</string>
 </resources>

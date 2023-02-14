@@ -1,6 +1,5 @@
 package com.example.pokedex
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,14 +11,11 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.pokedex.adapter.PokemonAdapter
 import com.example.pokedex.adapter.PokemonStatsAdapter
-import com.example.pokedex.model.Stat
 import com.example.pokedex.model.Type
 import com.example.pokedex.viewmodel.PokemonViewModel
 
 class PokemonPage : AppCompatActivity() {
-    private lateinit var title: TextView
     private lateinit var textViewPokemonID: TextView
     private lateinit var textViewPokemonName: TextView
     private lateinit var textViewPokemonType1: TextView
@@ -44,7 +40,6 @@ class PokemonPage : AppCompatActivity() {
         name = (intent.getSerializableExtra("name") as? String)!!
         pokemonViewModel = ViewModelProvider(this)[PokemonViewModel::class.java]
         pokemonStatsAdapter = PokemonStatsAdapter(pokemonViewModel.getListStats())
-        title = findViewById<TextView>(R.id.title)
         progressBar = findViewById<ProgressBar>(R.id.progressBar)
         textViewPokemonID = findViewById<TextView>(R.id.textViewPokemonID)
         textViewPokemonName = findViewById<TextView>(R.id.textViewPokemonName)
@@ -65,7 +60,6 @@ class PokemonPage : AppCompatActivity() {
         pokemonViewModel.getPokemonInfo(name).observe(this) { pokemon ->
             if (pokemon != null) {
                 progressBar.visibility = View.GONE
-                title.text = pokemon.getPokemonName()
                 Glide.with(this).load(pokemon.getImage()).into(imageViewPokemonImage)
                 textViewPokemonID.text = pokemon.getID()
                 textViewPokemonName.text = pokemon.getPokemonName()
@@ -148,7 +142,6 @@ class PokemonPage : AppCompatActivity() {
         }
     }
     override fun onBackPressed() {
-        startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
 }

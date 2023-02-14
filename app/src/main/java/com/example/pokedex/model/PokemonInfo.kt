@@ -1,6 +1,8 @@
 package com.example.pokedex.model
 
-class PokemonInfo(val name: String, private val id: String){
+import java.io.Serializable
+
+class PokemonInfo(val name: String, private val id: String): Serializable {
     fun getID(): String {
         var fullID = "#"
         fullID += when (id.length) {

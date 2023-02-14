@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/appName"
+        android:padding="10dp"
         style="@style/TextView_Style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,16 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/title"
-        style="@style/TextView_Style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Title"
-        app:layout_constraintEnd_toEndOf="@+id/appName"
-        app:layout_constraintStart_toStartOf="@+id/appName"
-        app:layout_constraintTop_toBottomOf="@+id/appName" />
 
     <ImageView
         android:contentDescription="@string/BackIconImage"

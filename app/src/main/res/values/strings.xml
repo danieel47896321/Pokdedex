@@ -5,7 +5,6 @@
     <string name="PokemonName">Pokemon Name</string>
     <string name="ID">#0001</string>
     <string name="BackIconImage">Back Icon Image</string>
-    <string name="PokemonList">Pokemon List</string>
     <string name="PokemonType">Type</string>
     <string name="PokemonWeight">Weight</string>
     <string name="PokemonHeight">Height</string>
@@ -35,4 +34,5 @@
     <string name="Ground">Ground</string>
     <string name="Dragon">Dragon</string>
     <string name="Fairy">Fairy</string>
+    <string name="Search">Search</string>
 </resources>
